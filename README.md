@@ -21,3 +21,15 @@ go run ./cmd/server
 ```
 
 The server listens on `localhost:8080` and expects a PostgreSQL instance configured via `DATABASE_URL` (defaults to `postgres://postgres:postgres@localhost:5432/squirrel?sslmode=disable`).
+
+## Deploying with Terraform
+
+Terraform configuration in the `infra/` directory can be used to run the API server and a PostgreSQL database using Docker containers.
+
+```bash
+cd infra
+terraform init
+terraform apply
+```
+
+The server will listen on port `8080` and the database will listen on port `5432` of your Docker host.
